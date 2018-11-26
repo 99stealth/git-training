@@ -10,3 +10,5 @@ or if want to use https method, then:
 git clone https://github.com/99stealth/git-training.git
 ```
 
+## 1. Add with --patch
+
