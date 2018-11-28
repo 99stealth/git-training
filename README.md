@@ -108,3 +108,31 @@ git stash list
 git checkout feature/stash
 git stash pop
 ```
+## 3. Delete commits
+- Go to the branch `feature/squash_and_delete`
+```
+git checkout feature/squash_and_delete
+```
+- Check what is inside the file
+- Ok, let's try to read the history:
+```
+git log -p -4
+```
+Where `-4` that's limit of commits
+- Don't you see something interesting? Yeah, AWS key which was added in the 3-rd commit and removed in next one
+- Let's remove this commit
+```
+git rebase --interactive --root
+```
+- In your editor you can see list of commits. Remove one with AWS key. Save and exit.
+- Now push it to remote:
+```
+git push --force origin feature/squash_and_delete
+```
+## 4. Squash
+- You are still at `feature/squash_and_delete`. So let's make squash:
+```
+git rebase --interactive --root 
+```
+- Choose commits which you want to squash. In order to do that you need to change `pick` to `squash`. Save and exit.
+- You will be moved to editor again and now you need to edit your commit messages. Save and exit.
